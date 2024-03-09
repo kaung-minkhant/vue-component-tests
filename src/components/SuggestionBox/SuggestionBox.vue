@@ -9,7 +9,7 @@
         @input="search"
       />
       <div
-        class="border border-slate-400 rounded-lg mt-3 p-2 w-full shadow-sm"
+        :class="['border border-slate-400 rounded-lg mt-3 p-2 w-full shadow-sm overflow-y-scroll', `max-h-[${maxSuggestion * 50}px]` ]"
         v-if="matchingSearch.length !== 0"
       >
         <div
@@ -33,6 +33,7 @@ export default {
     searchList: Array,
     selectField: String,
     searchKey: String,
+    maxSuggestion: Number,
   },
   emits: ['selected'],
   data() {
